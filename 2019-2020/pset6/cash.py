@@ -1,4 +1,18 @@
-# https://docs.cs50.net/2019/x/psets/6/sentimental/mario/less/mario.html
+# -----------------------------------------------------------------------------
+# cash.py
+#
+# Computer Science 50
+# Problem Set 6
+#
+# Calculates the minimum number of coins required to give a user change
+#
+# 2019:
+# https://docs.cs50.net/2019/x/psets/6/sentimental/cash/cash.html
+# 2020:
+# https://cs50.harvard.edu/x/2020/psets/6/cash/
+#
+# -----------------------------------------------------------------------------
+
 
 from cs50 import get_float
 

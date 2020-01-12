@@ -1,6 +1,17 @@
+# ------------------------------------------------------------------------------
+# credit.py
+#
+# Computer Science 50
+# Problem Set 6
+#
+# Determines whether a provided credit card number is valid
+# according to Luhn’s algorithm.
+#
+# 2020:
+# https://cs50.harvard.edu/x/2020/psets/6/credit/
+# 2019:
 # https://docs.cs50.net/2019/x/psets/6/sentimental/credit/credit.html
-
-# Identificaton of a credit Card
+# ------------------------------------------------------------------------------
 
 from cs50 import get_int
 

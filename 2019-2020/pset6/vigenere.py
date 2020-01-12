@@ -1,7 +1,14 @@
+# ------------------------------------------------------------------------------
+# vigenere.py
+#
+# Computer Science 50
+# Problem Set 6
+#
+# Encrypts messages using Vigenère’s cipher
+#
+# 2019:
 # https://docs.cs50.net/2019/x/psets/6/sentimental/vigenere/vigenere.html
-
-# Vigenère
-# Implement a program that encrypts messages using Vigenère’s cipher
+# ------------------------------------------------------------------------------
 
 from sys import argv, exit
 

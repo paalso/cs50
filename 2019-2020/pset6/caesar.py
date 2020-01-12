@@ -1,6 +1,14 @@
+# ------------------------------------------------------------------------------
+# caesar.py
+#
+# Computer Science 50
+# Problem Set 6
+#
+# Encrypts messages using Caesar’s cipher
+#
+# 2019:
 # https://docs.cs50.net/2019/x/psets/6/sentimental/caesar/caesar.html
-
-# Caesar cipher encription
+# ------------------------------------------------------------------------------
 
 from sys import argv, exit
 

@@ -1,16 +1,16 @@
 # ------------------------------------------------------------------------------
 # mario.py
-# "Less comfortable" version
+# "More comfortable" version
 #
 # Computer Science 50
 # Problem Set 6
 #
-# Prints out a half-pyramid of a specified heigh
+# Prints out a double half-pyramid of a specified height
 #
 # 2020:
-# https://cs50.harvard.edu/x/2020/psets/6/mario/less/
+# https://cs50.harvard.edu/x/2020/psets/6/mario/more/
 # 2019
-# https://docs.cs50.net/2019/x/psets/6/sentimental/mario/less/mario.html
+# https://docs.cs50.net/2019/x/psets/6/sentimental/mario/more/mario.html
 # ------------------------------------------------------------------------------
 
 from cs50 import get_int

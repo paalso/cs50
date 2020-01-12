@@ -1,8 +1,15 @@
+# -----------------------------------------------------------------------------
+# bleep.py
+#
+# Computer Science 50
+# Problem Set 6
+#
+# Сensors messages that contain words 
+# that appear on a list of supplied "banned words
+#
+# 2019:
 # https://docs.cs50.net/2019/x/psets/6/bleep/bleep.html
-
-# Bleep
-# Implement a program that censors messages that contain words 
-# that appear on a list of supplied "banned words."
+# -----------------------------------------------------------------------------
 
 from cs50 import get_string
 from sys import argv, exit
