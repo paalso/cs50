@@ -1,0 +1,20 @@
+// http://docs.cs50.net/problems/fifteen/fifteen.html
+
+Check result:
+
+~/workspace/src/fifteen/ $ check50 2016.fifteen fifteen.c                                                                                                                                                 
+:) fifteen.c exists
+:) fifteen.c compiles
+:) init initializes 3x3 board correctly
+:) init initializes 4x4 board correctly
+:) 3x3 board, move blank up twice
+:) 3x3 board, move blank left twice
+:) 3x3 board, move blank left then right
+:) 3x3 board, move blank up then down
+:) 3x3 board, move up-up-left-down-down-left-up-up-right-down-down-right
+:) 3x3 board, from start try to move tile 2, 4, 5, 6, 7, 8
+:) 3x3 board, move blank left (tile 1) then up (tile 4), then try to move tiles 1, 2, 6, 8
+:) 3x3 board, move blank up (tile 3), then try tile 2
+:) 3x3.txt wins the 3x3 board
+:) 4x4.txt wins the 4x4 board
+https://sandbox.cs50.net/checks/07830757998c40c6a57ad611d0486638
