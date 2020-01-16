@@ -1,3 +1,16 @@
+/**
+ * tideman.c
+ *
+ * Computer Science 50
+ * Problem Set 3
+ *
+ * Runs a Tideman election
+ *
+ * 2020:
+ * https://cs50.harvard.edu/x/2020/psets/3/tideman/
+ *
+ */
+
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
@@ -34,11 +47,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
-
 // Additional functions
-void print_ranks(int ranks[]);
-void print_preferences();
-void print_pairs();
 int pairs_comparator(const void *val1, const void *val2);
 bool check_cycle(int x, int y);
 void fill_array(int array[], int size, int filler);
@@ -64,8 +73,6 @@ int main(int argc, string argv[])
     {
         candidates[i] = argv[i + 1];
     }
-
-    // print_preferences();    // DEBUG
 
     // Clear graph of locked in pairs
     for (int i = 0; i < candidate_count; i++)
@@ -97,27 +104,13 @@ int main(int argc, string argv[])
             }
         }
 
-        // printf("Voter # %d\n", i);   // DEBUG
-        // print_ranks(ranks);   // DEBUG
-
         record_preferences(ranks);
-
-        // print_preferences();    // DEBUG
 
         printf("\n");
     }
 
-    // printf("Final preferences:\n");    // DEBUG
-    // print_preferences();    // DEBUG
-
     add_pairs();
-
-    // print_pairs();   // DEBUG
-
     sort_pairs();
-
-    // print_pairs();   // DEBUG
-
     lock_pairs();
     print_winner();
     return 0;
@@ -137,7 +130,6 @@ bool vote(int rank, string name, int ranks[])
     return false;
 }
 
-
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
@@ -148,7 +140,7 @@ void record_preferences(int ranks[])
             // да как же оно мозговывернуто, ёпта!
             int row = ranks[i];
             int col = ranks[j];
-            preferences[row][col] +=1;
+            preferences[row][col] += 1;
         }
     }
     return;
@@ -195,7 +187,7 @@ int pairs_comparator(const void *val1, const void *val2)
     pair *pair1 = (pair *)val1;
     pair *pair2 = (pair *)val2;
     return preferences[pair2->winner][pair2->loser] -
-            preferences[pair1->winner][pair1->loser];
+           preferences[pair1->winner][pair1->loser];
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
@@ -229,10 +221,10 @@ void print_winner(void)
             }
         }
         if (flag)
-            {
-                printf("%s\n", candidates[j]);
-                return;
-            }
+        {
+            printf("%s\n", candidates[j]);
+            return;
+        }
     }
     return;
 }
@@ -300,42 +292,4 @@ void copy_array(int from[], int to[], int size, int pos_to_copy, int filler)
     {
         to[i] = from[i];
     }
-}
-
-
-// Additional functions, for debug printing of the data structures in the program
-
-// Print the array ranks[]
-void print_ranks(int ranks[])
-{
-    for (int i = 0; i < candidate_count; ++i)
-    {
-        printf("%d ", ranks[i]);
-    }
-    printf("\n");
-}
-
-// Print the array preferences[][]
-void print_preferences()
-{
-    printf("\n");
-    for (int i = 0; i < candidate_count; ++i)
-    {
-        for (int j = 0; j < candidate_count; ++j)
-        {
-            printf("%d ", preferences[i][j]);
-        }
-        printf("\n");
-    }
-}
-
-// Print the array pairs[][]
-void print_pairs()
-{
-    for (int i = 0; i < pair_count; ++i)
-    {
-        printf("(%d, %d), victory strength: %d\n",
-            pairs[i].winner, pairs[i].loser, preferences[pairs[i].winner][pairs[i].loser]);
-    }
-    printf("\n");
 }
