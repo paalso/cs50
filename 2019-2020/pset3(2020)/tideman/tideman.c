@@ -107,7 +107,8 @@ int main(int argc, string argv[])
         printf("\n");
     }
 
-    print_preferences();    // DEBUG
+    // printf("Final preferences:\n");    // DEBUG
+    // print_preferences();    // DEBUG
 
     add_pairs();
 
@@ -129,7 +130,7 @@ bool vote(int rank, string name, int ranks[])
     {
         if (strcmp(candidates[i], name) == 0)
         {
-            ranks[i] = rank;
+            ranks[rank] = i;    // correct !
             return true;
         }
     }
@@ -144,14 +145,10 @@ void record_preferences(int ranks[])
     {
         for (int j = i + 1; j < candidate_count; ++j)
         {
-            if (ranks[j] < ranks[i])
-            {
-                preferences[j][i] += 1;
-            }
-            else
-            {
-                preferences[i][j] += 1;
-            }
+            // да как же оно мозговывернуто, ёпта!
+            int row = ranks[i];
+            int col = ranks[j];
+            preferences[row][col] +=1;
         }
     }
     return;
