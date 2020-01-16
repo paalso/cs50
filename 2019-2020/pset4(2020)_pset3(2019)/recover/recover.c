@@ -27,9 +27,15 @@ const int jpg_start2[] = {0xff, 0xd8, 0xff, 0xe1};
 
 _Bool check_jpgstart(BYTE *buffer);
 
-int main()
+int main(int argc, char *argv[])
 {
-    const char infile[] = "card.raw";
+    if (argc != 2)
+    {
+        fprintf(stderr, "Usage: ./recover image\n");
+        return 1;
+    }
+
+    const char *infile = argv[1];
     int counter = 0;
     FILE *inptr, *outptr;
     _Bool successfully_read;
