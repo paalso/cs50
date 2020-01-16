@@ -1,0 +1,38 @@
+Password List
+==============
+brian:51.xJagtPnb6s
+bjbrown:50GApilQSG3E2
+emc:502sDZxA/ybHs
+greg:50C6B0oz0HWzo
+jana:50WUNAFdX/yjA
+lloyd:50n0AAUD.pL8g
+malan:50CcfIk1QrPr6
+natmelo:50JIIyhDORqMU
+rob:51v3Nh6ZWGHOQ
+veronica:61v1CDwwP95bY
+walker:508ny6Rw0aRio
+zamyla:50cI2vYkF0YU2
+..........................
+Testing
+========
+Correctness
+------------
+No check50 for this one! But odds are, if you can crack all twelve passwords above, you’re in good shape!
+
+
+My solution:
+-------------
+('brian', 'TF')
+('bjbrown', 'UPenn')
+('emc', 'puppy')
+('greg', 'FTW')
+('jana', 'Yale')
+('lloyd', 'lloyd')
+('malan', 'maybe')
+('natmelo', 'nope')
+('rob', 'ROFL')
+('veronica', 'hola')
+('walker', 'sean')
+('zamyla', 'LOL')
+
+Yep, I'm seemingly in good shape ;)
