@@ -7,6 +7,6 @@
 
 
 ##### Progress
-[Submissions](https://cs50.me/submissions)
+[Submissions](https://submit.cs50.io/courses/1)
 
-[Scores](https://cs50.me/courses/b90cbcd6-4c36-481c-8b6d-c6d50f4ed38e/scores)
+[Gradebook](https://cs50.me/cs50x)
