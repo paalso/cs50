@@ -3,6 +3,7 @@
  *
  * Computer Science 50
  * Problem Set 3
+ * "Less comfortable" version
  *
  * Applies filters to BMPs
  *
