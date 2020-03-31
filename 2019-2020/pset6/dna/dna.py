@@ -40,14 +40,14 @@ def longest_sequence_len(text, sample):
             return max_adjacent
 
         counter = 1
-        while text[index + counter * sample_size:\
-                   index + (counter + 1) * sample_size] == sample:
+        while text[index + counter * sample_size:
+            index + (counter + 1) * sample_size] == sample:
             counter += 1
 
         if counter > max_adjacent:
             max_adjacent = counter
 
-        index = index + (counter + 1) * sample_size - 1
+        index += 1 if counter == 1 else (counter + 1) * sample_size - 1
 
 
 def sequence_strs_dict(sequence, strs):
