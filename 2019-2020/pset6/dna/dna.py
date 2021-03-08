@@ -84,7 +84,7 @@ def person_by_strs(strs_database, strs_dict):
 
 def csv_strs_reader(file_name):
     """
-    Returns the DNA sequense string (done in the file 'file_name')
+    Returns the DNA sequense string (given in the file 'file_name')
 
     file_name: string
 
@@ -96,7 +96,7 @@ def csv_strs_reader(file_name):
 
 def csv_database_reader(file_name):
     """
-    Reads the database (done in the file 'file_name')
+    Reads the database (given in the file 'file_name')
     and return it as a list of PersonSTRS Objects
     [PersonSTRS(name, dict {'STR':'number'})]
 
@@ -117,7 +117,7 @@ def csv_database_reader(file_name):
 
 def dnasequence_reader(file_name):
     """
-    Reads the database (done in the file 'file_name')
+    Reads the database (given in the file 'file_name')
     and return the list of STRs
 
     file_name: string
