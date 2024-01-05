@@ -1,7 +1,7 @@
 /**
  * half.c
  *
- * CS50 Practice Problems 2: Half
+ * CS50 Practice Problems 1: Half
  * 
  * Calculate your half of a restaurant bill
  */
