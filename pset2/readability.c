@@ -1,8 +1,7 @@
 /**
  * readability.c
  *
- * Computer Science 50
- * Problem Set 2
+ * CS50 Problem Set 2: Readability
  *
  * Calculates the approximate level of text complexity based on the Coleman-Liau index.
  */
