@@ -140,9 +140,7 @@ string encryptText(string text, string key)
     int len = strlen(text);
     string encrypted = (string) malloc((len + 1) * sizeof(char));
     for (int i = 0; i < len; ++i)
-    {
         encrypted[i] = encryptChar(text[i], ALPHABET, key);
-    }
     encrypted[len] = '\0';
     return encrypted;
 }
