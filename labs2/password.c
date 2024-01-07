@@ -3,8 +3,8 @@
  *
  * CS50 Practice Problems 2: Password
  *
- * Checks the input password to contain at least
- * one uppercase letter, lowercase letter, number and symbol
+ * Checks the password to contain at least one uppercase letter,
+ * lowercase letter, number and symbol
  */
 
 #include <cs50.h>
@@ -31,54 +31,27 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-// ----- Args check ---------------------------------------
 bool checkPassword(string password)
-{
-    if (!checkLowerCaseLetters(password))
-        return false;
-    if (!checkUpperCaseLetters(password))
-        return false;
-    if (!checkDigits(password))
-        return false;
-    if (!checkSymbols(password))
-        return false;
-    return true;
-}
-
-bool checkUpperCaseLetters(string text)
-{
-    char *c = text;
-    while (*c != '\0')
-        if (isupper(*c++))
-            return true;
-    return false;
-}
-
-bool checkDigits(string text)
-{
-    char *c = text;
-    while (*c != '\0')
-        if (isdigit(*c++))
-            return true;
-    return false;
-}
-
-bool checkLowerCaseLetters(string text)
-{
-    char *c = text;
-    while (*c != '\0')
-        if (islower(*c++))
-            return true;
-    return false;
-}
-
-bool checkSymbols(string text)
 {
     const string symbols = "%!\"#$&\'()*+,-./:;<=>?@[\\]^_`{|}~";
 
-    char *c = text;
+    bool containsLowerCaseLetters = false;
+    bool containsUpperCaseLetters = false;
+    bool containsDigits = false;
+    bool containsSymbols = false;
+
+    char *c = password;
     while (*c != '\0')
-        if (strchr(symbols, *c++))
-            return true;
-    return false;
+    {
+        if (isupper(*c))
+            containsUpperCaseLetters = true;
+        if (islower(*c))
+            containsLowerCaseLetters = true;
+        if (isdigit(*c))
+            containsDigits = true;
+        if (strchr(symbols, *c))
+            containsSymbols = true;
+        c++;
+    }
+    return containsUpperCaseLetters && containsLowerCaseLetters && containsDigits && containsSymbols;
 }
