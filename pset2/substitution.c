@@ -1,12 +1,10 @@
 /**
  * caesar.c
  *
- * CS50 Problem Set 2: Caesar
+ * CS50 Problem Set 2: Substitution
  *
- * Encrypts the text using Caesar’s cipher algorithm
+ * Encrypts the text using substitution cipher
  */
-
-#define CIPHER_CHARS_NUMBER 26
 
 #include <cs50.h>
 #include <ctype.h>
@@ -15,12 +13,36 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define ALPHABET "abcdefghijklmnopqrstuvwxyz"
+#define ALPHABET_LENGTH strlen(ALPHABET)
+
+int checkArgs(int, char **);
+bool isValidChar(char c);
 bool checkKeyLength(const char *);
 bool checkArgsNumber(int);
-bool isAlphaText(const char *);
+bool areValidChars(const char *);
 bool areCharsUniq(const char *);
 
+char encryptChar(char, string, string);
+string encryptText(string, string);
+string lowerText(string);
+
 int main(int argc, char *argv[])
+{
+    int checkArgsCode = checkArgs(argc, argv);
+    if (checkArgsCode)
+        return checkArgsCode;
+
+    string normalizedKey = lowerText(argv[1]);
+    string text = get_string("plaintext: ");
+    string ciphertext = encryptText(text, normalizedKey);
+    printf("ciphertext: %s\n", ciphertext);
+
+    return 0;
+}
+
+// ----- Args check ---------------------------------------
+int checkArgs(int argc, char *argv[])
 {
     if (!checkArgsNumber(argc))
     {
@@ -32,11 +54,11 @@ int main(int argc, char *argv[])
 
     if (!checkKeyLength(key))
     {
-        fprintf(stderr, "Key must contain 26 characters.\n");
+        fprintf(stderr, "Error: Key must contain exactly %lu characters.\n", ALPHABET_LENGTH);
         return 1;
     }
 
-    if (!isAlphaText(key))
+    if (!areValidChars(key))
     {
         fprintf(stderr, "Key must contain alphabetic characters only.\n");
         return 1;
@@ -48,7 +70,6 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    printf("Your args are valid!\n");
     return 0;
 }
 
@@ -59,18 +80,23 @@ bool checkArgsNumber(int argc)
 
 bool checkKeyLength(const char *key)
 {
-    return strlen(key) == CIPHER_CHARS_NUMBER;
+    return strlen(key) == ALPHABET_LENGTH;
 }
 
-bool isAlphaText(const char *text)
+bool areValidChars(const char *text)
 {
     const char *c = text;
     while (*c != '\0')
     {
-        if (!isalpha(*c++))
+        if (!isValidChar(*c++))
             return false;
     }
     return true;
+}
+
+bool isValidChar(char c)
+{
+    return isalpha(c);
 }
 
 bool areCharsUniq(const char *text)
@@ -84,4 +110,41 @@ bool areCharsUniq(const char *text)
                 return false;
     }
     return true;
+}
+
+// ----- Encrypting ---------------------------------------
+string lowerText(string text)
+{
+    int len = strlen(text);
+    string lowered = (string) malloc((len + 1) * sizeof(char));
+    for (int i = 0; i < len; ++i)
+        lowered[i] = tolower(text[i]);
+    lowered[len] = '\0';
+    return lowered;
+}
+
+char encryptChar(char c, string alphabet, string key)
+{
+    char *position = strchr(alphabet, tolower(c));
+    if (position)
+    {
+        int index = position - alphabet;
+        char encryptedChar = key[index];
+        if (isupper(c))
+            encryptedChar = toupper(encryptedChar);
+        return encryptedChar;
+    }
+    return c;
+}
+
+string encryptText(string text, string key)
+{
+    int len = strlen(text);
+    string encrypted = (string) malloc((len + 1) * sizeof(char));
+    for (int i = 0; i < len; ++i) {
+        char encryptedChar = encryptChar(text[i], ALPHABET, key);
+        encrypted[i] = encryptChar(text[i], ALPHABET, key);
+    }
+    encrypted[len] = '\0';
+    return encrypted;
 }
