@@ -1,0 +1,27 @@
+sort1 uses: Bubble sort
+
+How do you know?: The sorting time depends on whether the array has been sorted. On sorted array it is fast (sorting is performed in one pass through the array), on reversed array it takes a long time
+
+sort2 uses: Merge sort
+
+How do you know?: The fastest sorting algorithm, which can be seen by the sorting time on large arrays, which is natural because Merge sort has complexity O(n*log(n)), unlike the other two, which have complexity O(n * n).
+
+sort3 uses: Selection sort
+
+How do you know?: Large sorting time, which almost does not depend on the degree of sorting of the array (for an array of a given size), which is typical for the Selection sort
+
+==========================================================================
+
+~/Courses/cs50/pset3/sort (master)$ ./sorting_time.py 
+Duration of sorting by different algorithms in seconds
+                     |  ./sort1 |  ./sort2 |  ./sort3
+------------------------------------------------------------
+sorted5000.txt       |    0.002 |    0.006 |    0.043
+sorted10000.txt      |    0.003 |    0.010 |    0.133
+sorted50000.txt      |    0.023 |    0.016 |    3.143
+reversed5000.txt     |    0.054 |    0.005 |    0.037
+reversed10000.txt    |    0.222 |    0.008 |    0.131
+reversed50000.txt    |    7.911 |    0.032 |    3.293
+random5000.txt       |    0.068 |    0.004 |    0.034
+random10000.txt      |    0.286 |    0.010 |    0.129
+random50000.txt      |    7.144 |    0.033 |    3.216
